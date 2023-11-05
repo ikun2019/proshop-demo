@@ -1,0 +1,22 @@
+{
+	"name": "e-commers",
+	"version": "1.0.0",
+	"description": "",
+	"type": "module",
+	"main": "server.js",
+	"scripts": {
+		"start": "npm run start --prefix backend",
+		"server": "npm run dev --prefix backend",
+		"client": "npm run start --prefix frontend",
+		"dev": "npm run server & npm run client"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.18.2"
+	},
+	"devDependencies": {
+		"nodemon": "^3.0.1"
+	}
+}
