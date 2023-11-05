@@ -2,8 +2,10 @@ const express = require('express');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const connectDB = require('./config/db.js');
 const products = require('./data/products.js');
 
+connectDB();
 
 const app = express();
 
