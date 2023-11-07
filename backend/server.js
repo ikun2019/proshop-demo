@@ -3,7 +3,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const connectDB = require('./config/db.js');
-const products = require('./data/products.js');
+const productRouter = require('./routes/product.route.js');
+const { errorHandler } = require('./error/errorHandler.js');
 
 connectDB();
 
@@ -13,14 +14,10 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-app.get('/api/products', (req, res) => {
-  res.json(products);
-});
+app.use('/api/products', productRouter);
 
-app.get('/api/products/:id', (req, res) => {
-  const product = products.find((product) => product._id === req.params.id);
-  res.json(product);
-});
+// app.use(notFound);
+app.use(errorHandler);
 
 app.listen(process.env.PORT, () => {
   console.log('Server is running!');
