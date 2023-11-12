@@ -26,7 +26,7 @@ const importData = async () => {
       return { ...product, user: adminUser }
     });
     await Product.insertMany(sampleProducts);
-    console.log('Data Inported!'.green.inverse);
+    console.log('Data Imported!'.green.inverse);
     process.exit(); // processを普通に終了
   } catch (error) {
     console.log(`${error}`.red.inverse);
@@ -48,7 +48,7 @@ const destroyData = async () => {
   }
 };
 
-if (process.argv[2] === 'id') {
+if (process.argv[2] === '-d') {
   destroyData();
 } else {
   importData();
