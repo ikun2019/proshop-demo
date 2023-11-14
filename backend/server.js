@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const connectDB = require('./config/db.js');
 const productRouter = require('./routes/product.route.js');
 const userRouter = require('./routes/user.route.js');
+const orderRouter = require('./routes/order.route.js');
 const { errorHandler } = require('./error/errorHandler.js');
 
 connectDB();
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
+app.use('/api/orders', orderRouter);
 
 // app.use(notFound);
 app.use(errorHandler);
